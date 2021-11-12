@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutBaru";
+}
+
+<div class="text-center">
+    <div class="text-black">
+        <h2>Data Employee</h2>
+    </div> 
+</div>
+
+<p><button class="btn btn-primary" data-toggle="modal" data-target="#modalEmployee">Register Employee</button></p>
+
+<p>
+    <button href="#" type="button" class="btn btn-danger" onclick="exportPdf();"><i class="fa fa-file-pdf"></i></button>
+    <button href="#" type="button" class="btn btn-success" onclick="exportExcel();"><i class="fa fa-file-excel"></i></button>
+</p>
+
+@*Table Employee*@
+<table id="tableEmployee" class="table table-striped  table-sm">
+    <thead>
+        <tr>
+            <th>NO</th>
+            <th>NIK</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>BirthDate</th>
+            <th>Salary</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="listEmpoyee"></tbody>
+</table>
+
+@*Modal Form Employee*@
+<div class="modal fade" id="modalEmployee" name="modalEmployee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Data Employee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="window.location.reload();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formEmployee">
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="formInputNik">NIK</label>
+                            <input type="text" class="form-control" id="nik" name="nik" placeholder="Input NIK">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="formInputFirstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Input First Name">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="formInputLastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Input Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-4">
+                            <label for="formInputPhone">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Input Phone">
+                            @*<div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">+62</span>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Input Phone" required>
+                                    </div>
+                                </div>*@
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="formInputGender">Gender</label>
+                            <select id="gender" name="gender" class="custom-select mr-sm-2">
+                                <option selected>Choose...</option>
+                                <option value="0">Male</option>
+                                <option value="1">Female</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 mb-2 p-2">
+                            <label for="formInputBirthDate">Birth Date</label>
+                            <input type="date" class="datepicker" id="birthDate" name="birthDate" placeholder="mm/dd/yyyy">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-4">
+                            @*<div class="col-6">*@
+                            <label for="formInputEmail">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Input Email">
+                            @*<div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Input Email" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">#example.com</span>
+                                    </div>
+                                </div>*@
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <label for="formDegree">Degree</label>
+                            <input type="text" class="form-control" id="degree" name="degree" placeholder="Input Degree">
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label for="formGpa">GPA</label>
+                            <input type="text" class="form-control" id="gpa" name="gpa" placeholder="Input GPA">
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <label for="formUniversitas">Universitas</label>
+                            <select id="universitas" name="universitas" class="custom-select mr-sm-2">
+                                <option selected></option>
+                                <option value="1">Universitas Telkom</option>
+                                <option value="2">Universitas Trisakti</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="formInputSalary">Salary</label>
+                            <input type="text" class="form-control" id="salary" name="salary" placeholder="Input Salary">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="formPassword">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelpBlock" placeholder="Input Password">
+                            @*<small id="passwordHelpBlock" class="form-text text-muted">
+                                    Your password must be 8-20 characters long.
+                                </small>*@
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="formUniversitas">Role</label>
+                            <select id="role" name="role" class="custom-select mr-sm-2">
+                                <option selected>Choose...</option>
+                                <option value="1">Employee</option>
+                                <option value="2">Manager</option>
+                                <option value="3">Director</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+                        <button id="btnDaftar" type="submit" class="btn btn-warning">Daftar</button>
+                        <button id="btnUpdate" type="button" class="btn btn-warning" style="display:none;" onclick="updateData();">Simpan Data</button>
+                        @*<button type="button" class="btn btn-primary" onclick="insertData();">Save changes</button>*@
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section scripts{
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    }
+*@
+

@@ -1,0 +1,84 @@
+﻿/*h1{
+    background-color : cyan;
+}
+
+p{
+    background-color : salmon;
+    width 100px;
+    height 100px;
+}
+
+a {
+    background-color: pink;
+    width 100px;
+    height 100px;
+}
+
+.header{
+    background-color : salmon;
+    width : 400px;
+}*/
+
+/*.one {
+    height: 150px;
+    width: 150px;
+    background-color: salmon;
+    position: relative;
+    z-index: 99999999999;
+}
+
+two {
+    height: 150px;
+    width: 150px;
+    background-color: hotpink;
+    position: relative;
+    top: -50px;
+    left: 50px;
+    z-index: 1;
+}
+
+three {
+    height: 150px;
+    width: 150px;
+    background-color: tomato;
+    position : relative;
+    top : -80px;
+    left : 70px;
+    z-index : 0;
+}
+
+.one::after{
+    background-color : green;
+}
+
+pembungkus{
+    width : 500px;
+    height : 500px;
+    border : 2px solid black;
+    position : relative;
+    margin : auto;
+}*/
+
+/**{
+    border: 2px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+}
+
+html{
+    margin : 0;
+    padding :0;
+}
+
+body{
+    max-width: 600px;
+    margin : 30px auto;
+}
+
+ section#b p#a{  
+    background-color : pink;
+} 
+
+ .list:nth-child(2) :hover{
+     background-color : cyan;
+ }*/
